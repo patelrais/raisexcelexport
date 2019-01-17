@@ -39,6 +39,10 @@ namespace Demo
 
              RaisExcelExport exportObject = new RaisExcelExport();
 
+            /* Use this link to convert RGB to Hex color : https://www.w3schools.com/colors/colors_rgb.asp */
+            exportObject.DateFormat = "[$-409]d\\-mmm\\-yy;@";
+            exportObject.HeaderBackgroundColorHex = "808080";
+            exportObject.HeaderForeGround = "ffffff";
             exportObject.Columns.Add(new ExcelColumn() { BindToProperty = "SrNo", DataType = ExcelColumnDataType.Integer, HeaderText = "Sr. No.", Width = 20 });
             exportObject.Columns.Add(new ExcelColumn() { BindToProperty = "Name", DataType = ExcelColumnDataType.Text, HeaderText = "Employee Name", Width = 50 });
             exportObject.Columns.Add(new ExcelColumn() { BindToProperty = "JoiningDate", DataType = ExcelColumnDataType.Date, HeaderText = "Joining Date", Width = 15 });
@@ -50,9 +54,7 @@ namespace Demo
 
             /* Save to disk */
             exportObject.CreateExcelExport(@"c:\temp\EmployeeExport.xlsx");
-
-
-            /* return as memorystream */
+              
             List<Employee> data = new List<Employee>();
             MemoryStream memoryStream = exportObject.CreateReportAsMemoryStream();
 
@@ -71,6 +73,7 @@ namespace Demo
         public double Hike { get; set; }
     }
 }
+
 
 ```
 
