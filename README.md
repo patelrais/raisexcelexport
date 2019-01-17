@@ -5,7 +5,7 @@ Create excel export as memory stream or physical file.
 # New Features!
   - Excel export in memorystream.
   - Save export to disk in .xlsx format.
-  
+  - HeaderRow background and foreground color.
 
 ```
 using Rais;
